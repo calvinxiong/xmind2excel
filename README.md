@@ -15,6 +15,7 @@
 2.  copy xmind2excel-1.1.0-RELEASE.jar 到本地双击即可使用
 
 #### 使用说明
+目前XMind仅支持8.0，以xml解析存储文件。
 
 step 1 使用XMind进行用例设计
 
