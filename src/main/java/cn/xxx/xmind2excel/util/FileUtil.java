@@ -24,7 +24,7 @@ public class FileUtil {
      * @return java.io.File
      */
     public static File transferXMind2Zip(File xMindFile) {
-        File file = new File("Extract\\" + xMindFile.getName());
+        File file = new File("Extract"+ File.separator + xMindFile.getName());
 
         // 如果Extract目录不存在, 则创建
         File pFile = new File(file.getParent());
@@ -36,7 +36,7 @@ public class FileUtil {
         FileUtil.copyFileUsingApacheCommonsIO(xMindFile, file);
         logger.info("使用备份xMind文件转换,路径为" + file.getAbsolutePath());
 
-        // 获取即将转换为zip的文件的绝对路径
+        // 获取即将转换为zip的文件的绝对路径 \\转译符
         String zipFileDest = file.getAbsolutePath().replaceAll("\\" + FileExtension.XMIND, FileExtension.ZIP);
         File zipFile = new File(zipFileDest);
         // 如果zip文件存在先删除

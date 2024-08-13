@@ -10,7 +10,7 @@
     </parent>
     <groupId>cn.xxx</groupId>
     <artifactId>xmind2excel</artifactId>
-    <version>1.1.0-RELEASE</version>
+    <version>1.2.0-release</version>
     <name>Xmind2Excel</name>
     <description>transfer XMind file to Excel</description>
 
@@ -66,8 +66,13 @@
             <groupId>org.jb2011.beautyeye_lnf</groupId>
             <artifactId>beautyeye_lnf</artifactId>
             <version>3.7</version>
-           <!-- <scope>system</scope>
-            <systemPath>C:/Users/xiongchenghui/Downloads/beautyeye-3.7/dist/beautyeye_lnf.jar</systemPath>-->
+            <!--
+            <scope>system</scope>
+            <systemPath>C:/Users/xiongchenghui/Downloads/beautyeye-3.7/dist/beautyeye_lnf.jar</systemPath>
+            -->
+            <!-- using system dependency jar -->
+            <scope>system</scope>
+            <systemPath>/Users/chenghuixiong/DevProjects/sisypheWorkspace/beautyeye_lnf-3.7.jar</systemPath>
         </dependency>
 
     </dependencies>
@@ -77,9 +82,12 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
-                <!--<configuration>
+
+                <!-- When maven package, it will include externally imported jar packages into the project jar -->
+                <configuration>
                     <includeSystemScope>true</includeSystemScope>
-                </configuration>-->
+                </configuration>
+
             </plugin>
         </plugins>
     </build>

@@ -57,7 +57,7 @@ public class XMind2Excel {
         File xMindZipFile = FileUtil.transferXMind2Zip(xMindFile);
         // 获取xMind的zip文件路径
         String zipPath = xMindZipFile.getAbsolutePath();
-        // 获取ZIP文件解压目录descDir
+        // 获取ZIP文件解压目录descDir \\转译符
         String descDir = zipPath.replaceAll("\\" + FileExtension.ZIP, "");
 
         // 解压ZIP文件 到descDir目录
@@ -69,7 +69,7 @@ public class XMind2Excel {
         }
 
         // 获取xMind content.xml文件
-        File xmlFile = new File(descDir + "/content.xml");
+        File xmlFile = new File(descDir + File.separator + "content.xml");
         // 创建一个SAXReader对象
         SAXReader sax = new SAXReader();
 
@@ -363,9 +363,18 @@ public class XMind2Excel {
             }
             prevTopicNode = prevTopicNode.getParent().getParent().getParent();
         }
+        // 记录用例模块路径备用
+        String testCaseNameOfPrefix = testCaseCatalog.toString();
+        // 补充根节点名称
+        String rootNodeName = prevTopicNode.element("title").getStringValue();
+        testCaseCatalog.insert(0, "-").insert(0,rootNodeName);
 
         /** 取得：用例名称 */
         String testCaseName = testCaseTopicNode.element("title").getStringValue();
+        // 增加用例模块路径前缀
+        if(testCaseName.length()>0){
+            testCaseName = testCaseNameOfPrefix + ": " + testCaseName;
+        }
 
         /** 取得：前置条件 */
         String predication = "";
