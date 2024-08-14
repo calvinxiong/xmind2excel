@@ -50,12 +50,13 @@ step 2 使用XMind-Excel转换工具把XMind转换成Excel
 在package目录下载 xmind2excel-1.2.0-RELEASE.jar 转换工具（需要JDK环境，双击可运行）。或下载源码，自己打包后本地target目录可获取。
 
 ![输入图片说明](https://images.gitee.com/uploads/images/2021/0517/140141_59a3a301_9109521.png "2.png")
-![输入图片说明](3.png)
+![输入图片说明](package/images/3.png)
+
 
 step 3 把Excel用例导入到TAPD
 
-![输入图片说明](4.png)
-![输入图片说明](5.png)
+![输入图片说明](package/images/4.png)
+![输入图片说明](package/images/5.png)
 
 
 #### 参与贡献
